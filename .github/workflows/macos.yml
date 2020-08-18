@@ -22,6 +22,14 @@ jobs:
     - name: Build cli
       working-directory: ./ll-cli
       run: cargo build --release --bin library-loader-cli
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Upload cli
+        path: ./ll-cli
     - name: Build GUI
       working-directory: ./ll-gui
       run: cargo build --release --bin library-loader-gui
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Upload gui
+        path: ./ll-gui
