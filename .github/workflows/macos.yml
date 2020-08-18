@@ -19,13 +19,9 @@ jobs:
       with:
           toolchain: stable
           override: true
-    - uses: actions-rs/cargo@v1
+    - name: Build cli
       working-directory: ./ll-cli
-      with:
-        command: build
-        args: --release --bin library-loader-cli
-    - uses: actions-rs/cargo@v1
+      run: cargo build --release --bin library-loader-cli
+    - name: Build GUI
       working-directory: ./ll-gui
-      with:
-        command: build
-        args: --release --bin library-loader-gui
+      run: cargo build --release --bin library-loader-gui
